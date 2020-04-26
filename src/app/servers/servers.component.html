@@ -1,2 +1,22 @@
-<app-server></app-server>
-<app-server></app-server>
+<label>Server ID Input</label>
+<input type="number" class="form-control" (input)="onUpdateServerID($event)">
+<!--<h3>{{serverID}}</h3>-->
+<br>
+<label>Server Name Input</label>
+<input type="text" class="form-control" (input)="onUpdateServerName($event)">
+<!--<h3>{{serverName}}</h3>-->
+<br>
+<label>Server Expiration Date</label>
+<input type="datetime-local" class="form-control" (input)="onUpdateServerExpirationDate($event)">
+<!--<h3>{{serverExpirationDate}}</h3>-->
+<br>
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
+<p>New Server Can Be Added: {{allowNewServer}}</p>
+<br>
+<h2 *ngIf="serverCreated; else noServer">Server was created, server name is {{serverName}}
+    <br>Server ID: {{serverID}}
+    <br>Server Expiration: {{serverExpirationDate}}
+</h2>
+<ng-template #noServer>
+    <h5>No Server Created</h5>
+</ng-template>

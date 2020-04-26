@@ -1,0 +1,14 @@
+<h3>User Name Input, My Way</h3>
+<input class="form-control" (input)="onUserNameUpdate($event)" [(ngModel)]="blank">
+<br>
+<br>
+<p>Name of User: {{userName}}</p>
+<br>
+<button class="btn btn-primary" (click)="onResetUserName()" [disabled]="!blank" button>Reset</button>
+<hr>
+<h3>User Name Input, Max's Way</h3>
+<input type="text" class="form-control" [(ngModel)]="userNameB">
+<br><br>
+<p>User Name: {{userNameB}}</p>
+<br>
+<button class="btn btn-primary" [disabled]="userNameB ===''" (click)="userNameB =''">Reset</button>
